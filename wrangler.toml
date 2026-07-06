@@ -1,0 +1,33 @@
+name = "worker-audio-server"
+main = "build/index.js"
+compatibility_date = "2026-06-05"
+workers_dev = true
+
+[build]
+command = "cargo install -q \"worker-build@^0.8\" && worker-build --release"
+
+[cache]
+enabled = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "audio-db"
+
+[[r2_buckets]]
+binding = "AUDIO"
+bucket_name = "audio-bucket"
+
+[observability]
+enabled = false
+head_sampling_rate = 1
+
+[observability.logs]
+enabled = false
+head_sampling_rate = 1
+persist = false
+invocation_logs = false
+
+[observability.traces]
+enabled = false
+persist = false
+head_sampling_rate = 1

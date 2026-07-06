@@ -1,0 +1,18 @@
+[package]
+name = "tomo-audio-server"
+version = "0.1.0"
+edition = "2021"
+authors = ["Tomoyo <tomoyo.dev@outlook.com>"]
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+axum = { version = "0.8", default-features = false, features = ["original-uri"] }
+tower-service = "0.3.3"
+worker = { version = "0.8", features = ["axum", "http", "d1"] }
+worker-macros = { version = "0.8", features = ["http"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+url = "2"
+percent-encoding = "2"
